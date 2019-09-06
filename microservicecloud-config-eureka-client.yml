@@ -1,13 +1,23 @@
+spring: 
+  profiles:
+    active:
+      - dev
+
+---
+
+server:
+  port: 7001 # 注册中心占用7001端口，冒号后面必须有空格
+
 spring:
   profiles: dev
-  profiles:
   application:
-    name: microservicecloud-config-client
+    name: microservicecloud-config-eureka-client
 
 eureka:
   instance: eureka7001.com # 冒号后面必须要有空格
   client:
     register-with-eureka: false # 当前的eureka-server 自己不必注册进服务
+    fetch-registry: false # 不通过eureka获取注册信息
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/
 ---
@@ -17,13 +27,13 @@ server:
 
 spring:
   profiles: test
-  profiles:
   application:
-    name: microservicecloud-config-client
+    name: microservicecloud-config-eureka-client
 
 eureka:
   instance: eureka7001.com # 冒号后面必须要有空格
   client:
     register-with-eureka: false # 当前的eureka-server 自己不必注册进服务
+    fetch-registry: false # 不通过eureka获取注册信息
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/
