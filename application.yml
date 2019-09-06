@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active:
+    - dev:
+---
+spring:
+  profiles: dev # 开发环境
+  application: 
+    name: microservicecloud-config-mzsj-dev
+---
+spring:
+  profiles: dev # 开发环境
+  application:
+    name: microservicecloud-config-mzsj-test
+# utf-8 保存格式
